@@ -1,0 +1,21 @@
+{
+  "name": "aeon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@aeon-ai-pay/x402": "https://gitpkg.vercel.app/flapguy/bnb-x402/typescript/packages/X402?bcb434de540fc7563d92a4849b591a9bd4d0e2f5",
+    "dotenv": "^17.2.3",
+    "hono": "^4.10.4",
+    "viem": "^2.38.6"
+  },
+  "scripts": {
+    "postinstall": "cd node_modules/@aeon-ai-pay/x402 && npm run build",
+    "run:smoke": "ts-node ./app/001-smoke.ts"
+  }
+}
