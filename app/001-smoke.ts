@@ -18,7 +18,7 @@ const TO_ADDRESS = "0x14276B249fC7c640Ee2406F28EF9f26E1069b5e8";
 // x402BNB token address on BSC 
 // Note: This is a temporary contract address 
 //       On Launch, we will grind a vanity address for x402BNB 
-const X402BNB_ADDRESS = "0x5DBb81a88fc6172ea1fb63dEd7e00d2C0DA5D184";
+const X402BNB_ADDRESS = "0xFD8578De9Bf1D6e4E387a02747B3d9F0E2B1757D";
 
 // Payer Wallet 
 const payer = privateKeyToAccount(process.env.PAYER_PRIVATE_KEY as Hex);
