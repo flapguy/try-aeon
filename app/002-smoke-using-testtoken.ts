@@ -41,6 +41,7 @@ const payer = privateKeyToAccount(process.env.PAYER_PRIVATE_KEY as Hex);
         description: "Payment of 1 TESTU",
         tokenSymbol: "TESTU",
         tokenDecimals: 18,
+        resource: `https://example.com/payments`,
         outputSchema: {
             input: {
                 type: "http",

@@ -91,19 +91,25 @@ export function useFacilitator(facilitator) {
             headers = { ...headers, ...authHeaders.verify };
         }
 
-       console.log(`${url}/verify`);
-        console.log("body:\n", JSON.stringify({
-                payload,
-                paymentRequirements: toJsonSafe(paymentRequirements),
-            }));
+        const requestBody = JSON.stringify({
+            payload,
+            paymentRequirements: toJsonSafe(paymentRequirements),
+        });
+        console.log(`${url}/verify`);
+        console.log("body:\n", requestBody);
+        
+        // Generate curl command for testing
+        const headersString = Object.entries(headers)
+            .map(([key, value]) => `-H "${key}: ${value}"`)
+            .join(' ');
+        const curlCommand = `curl -X POST ${headersString} -d '${requestBody}' "${url}/verify"`;
+        console.log("\nCurl command for testing:");
+        console.log(curlCommand);
 
         const res = await fetch(`${url}/verify`, {
             method: "POST",
             headers,
-            body: JSON.stringify({
-                payload,
-                paymentRequirements: toJsonSafe(paymentRequirements),
-            }),
+            body: requestBody,
         });
         if (res.status !== 200) {
             // Try to get the detailed error message from the response

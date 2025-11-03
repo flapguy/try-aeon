@@ -39,6 +39,7 @@ const payer = privateKeyToAccount(process.env.PAYER_PRIVATE_KEY as Hex);
         networkId: "56",
         description: "Payment of 0.0001 x402BNB",
         tokenSymbol: "x402BNB",
+        resource: "test payments",
         tokenDecimals: 18,
         outputSchema: {
             input: {
