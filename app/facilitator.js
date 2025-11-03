@@ -90,6 +90,13 @@ export function useFacilitator(facilitator) {
             const authHeaders = await facilitator.createAuthHeaders();
             headers = { ...headers, ...authHeaders.verify };
         }
+
+       console.log(`${url}/verify`);
+        console.log("body:\n", JSON.stringify({
+                payload,
+                paymentRequirements: toJsonSafe(paymentRequirements),
+            }));
+
         const res = await fetch(`${url}/verify`, {
             method: "POST",
             headers,
